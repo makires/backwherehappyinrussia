@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request, render_template, send_from_directory
 # from flask_cors import CORS
 from model.city_model import match_exact
 
-app = Flask(__name__)
+whpr = Flask(__name__)
 # CORS(app)
 
 # FLUTTER_WEB_APP = 'templates'
@@ -26,13 +26,13 @@ app = Flask(__name__)
 #     return send_from_directory(DIR_NAME, datalist[-1])
 
 
-@app.route('/')
+@whpr.route('/')
 def render_page():
     return "WhereHappyInRussia"
     # return render_template('index.html')
 
 
-@app.route("/search")
+@whpr.route("/search")
 def search_city():
     args = request.args.get('cityName')
     if not args:
@@ -42,4 +42,4 @@ def search_city():
 
 
 if __name__ == "__main__":
-    app.run()
+    whpr.run()
